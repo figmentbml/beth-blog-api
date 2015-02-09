@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    render json: Post.all
+    render json: Post.all, except: [:comments, :users]
   end
 
   def show
