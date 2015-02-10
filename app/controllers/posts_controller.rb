@@ -5,6 +5,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    render json: Post.find(params[:id])
+    render json: Post.find(params[:id]), except: [:posts]
   end
 end
