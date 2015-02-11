@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150209202414) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,8 +31,9 @@ ActiveRecord::Schema.define(version: 20150209202414) do
   end
 
   create_table "users", force: true do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.integer "post_id"
   end
 
 end
