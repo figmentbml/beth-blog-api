@@ -6,14 +6,14 @@ class PostsController < ApplicationController
     if searched
       @filtered = Post.where("title LIKE ? OR body LIKE ?", "%#{searched}%", "%#{searched}%")
 
-      render json: @filtered, except: [:comments, :users]
+      render json: @filtered, except: [:comments]
     else
-      render json: Post.all, except: [:comments, :users]
+      render json: Post.all, except: [:comments]
     end
   end
 
   def show
-    render json: Post.find(params[:id]), except: [:users]
+    render json: Post.find(params[:id])
   end
 
   def create
