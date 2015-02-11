@@ -13,7 +13,24 @@ class PostsController < ApplicationController
   end
 
   def show
-    render json: Post.find(params[:id]), except: [:posts]
+    render json: Post.find(params[:id]), except: [:users]
+  end
+
+  def create
+    @post = Post.new(post_params)
+    @post.save
+    render json: @post
+  end
+
+  def update
+    @post.update(post_params)
+    @post.save
+    render json: @post
+  end
+
+  def destroy
+    @post.destroy
+    render json: {}
   end
 
   private

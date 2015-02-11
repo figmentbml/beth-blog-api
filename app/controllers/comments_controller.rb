@@ -5,6 +5,6 @@ class CommentsController < ApplicationController
   end
 
   def show
-    render json: Comment.find(params[:id])
+    render json: Comment.find(params[:id]), except: [:users, :posts]
   end
 end
