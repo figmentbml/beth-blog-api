@@ -5,6 +5,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: User.find(params[:id]), except: [:posts]
+    render json: User.find(params[:id])
   end
 end
